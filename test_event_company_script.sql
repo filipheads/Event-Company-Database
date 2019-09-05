@@ -165,3 +165,32 @@ select*from płace;
 select*from wartość_przyszłych_eventów;
 select*from wartość_zorganizowanych_eventów;
 select*from lista_pracowników;
+
+
+delimiter //
+create trigger event_01 after update on all_events
+for each row
+begin
+if event_date > curdate()
+	set new.organized_0_upcoming_1 = 0;
+end //
+delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
